@@ -17,7 +17,7 @@ environment{
     
         stage('SonarQube analysis') {
         environment{
-            scannerHome = tool 'cdit-sonarscanner 4.0';
+            scannerHome = tool 'cdit-sonarscanner';
         }
         steps{
         withSonarQubeEnv('cdit-sonarqube-server')     { // If you have configured more than one global server connection, you can specify its name
