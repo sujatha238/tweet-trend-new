@@ -51,13 +51,13 @@ environment {
         steps {
             script {
                     echo '<--------------- Jar Publish Started --------------->'
-                     def server = Artifactory.newServer url:registry+"/artifactory" ,  credentialsId:"jfrogsuja1"                    
+                     def server = Artifactory.newServer url:registry+"/artifactory" ,  credentialsId:"jfrogsuja"                    
                      def properties = "buildid=${env.BUILD_ID},commitid=${GIT_COMMIT}";
                      def uploadSpec = """{
                           "files": [
                             {
                               "pattern": "jarstaging/(*)",
-                              "target": "ff-libs-release-local",
+                              "target": "abc-libs-release-local/",
                               "flat": "false",
                               "props" : "${properties}",
                               "exclusions": [ "*.sha1", "*.md5"]
