@@ -57,8 +57,8 @@ environment {
                           "files": [
                             {
                               "pattern": "jarstaging/(*)",
-                              "target": "abc-libs-release-local/",
-                              "flat": "false",
+                              "target": "abc-libs-release-local/{1}",
+                              "flat": "false",{1}
                               "props" : "${properties}",
                               "exclusions": [ "*.sha1", "*.md5"]
                             }
