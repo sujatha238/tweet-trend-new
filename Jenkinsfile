@@ -1,4 +1,8 @@
 def registry = 'https://cditvala.jfrog.io'
+def imageName = 'cditvala.jfrog.io/cditdocker-docker-local/trend'
+def version   = '2.1.2'
+
+
 pipeline {
     agent {
         node {
@@ -69,9 +73,34 @@ environment {
                      server.publishBuildInfo(buildInfo)
                      echo '<--------------- Jar Publish Ended --------------->'  
             
+              }  
             }
-        }   
+        }
+        stage(" Docker Build ") {
+          steps {
+            script {
+               echo '<--------------- Docker Build Started --------------->'
+               app = docker.build(imageName+":"+version)
+               echo '<--------------- Docker Build Ends --------------->'
+        }
+      }
+    }
+
+            stage (" Docker Publish "){
+        steps {
+            script {
+               echo '<--------------- Docker Publish Started --------------->'  
+                docker.withRegistry(registry, 'jfrogsuja'){
+                    app.push()
+                }    
+               echo '<--------------- Docker Publish Ended --------------->'  
+            }
+        }
+    }
+            
+   
+      
     }   
   }
-}
+
 
