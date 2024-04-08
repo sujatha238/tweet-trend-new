@@ -1,6 +1,6 @@
 def registry = 'https://cditvala.jfrog.io'
 def imageName = 'cditvala.jfrog.io/cditdocker-docker-local/trend'
-def version   = '2.1.2'
+def version   = '2.1.3'
 
 
 pipeline {
