@@ -52,7 +52,7 @@ environment {
   }*/
      
         stage("Jar Publish") {
-        steps {
+          steps {
             script {
                     echo '<--------------- Jar Publish Started --------------->'
                      def server = Artifactory.newServer url:registry+"/artifactory" ,  credentialsId:"jfrogsuja"                    
@@ -86,8 +86,8 @@ environment {
       }
     }
 
-            stage (" Docker Publish "){
-        steps {
+        stage (" Docker Publish "){
+          steps {
             script {
                echo '<--------------- Docker Publish Started --------------->'  
                 docker.withRegistry(registry, 'jfrogsuja'){
