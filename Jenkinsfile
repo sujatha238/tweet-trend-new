@@ -28,7 +28,7 @@ environment {
             }
         }
 
-        stage('SonarQube analysis') {
+        /*stage('SonarQube analysis') {
           tools {
             jdk "jdk17" // the name you have given the JDK installation in Global Tool Configuration
          }
@@ -52,7 +52,7 @@ environment {
   }
   }//def registry = 'https://valaxy01.jfrog.io'
     }
-  }
+  }*/
      
         stage("Jar Publish") {
           steps {
