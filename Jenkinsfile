@@ -13,6 +13,9 @@ environment {
     PATH = "/opt/apache-maven-3.9.6/bin:$PATH"
 }
     stages {
+      tools {
+          jdk "jdk11" // the name you have given the JDK installation in Global Tool Configuration
+         }
         stage("build"){
             steps {
                  echo "----------- build started ----------"
@@ -29,6 +32,9 @@ environment {
         }
 
         stage('SonarQube analysis') {
+        tools {
+          jdk "jdk17" // the name you have given the JDK installation in Global Tool Configuration
+         }
         environment {
           scannerHome = tool 'valaxy-sonar-scanner'
         }
@@ -55,7 +61,7 @@ environment {
           steps {
             script {
                     echo '<--------------- Jar Publish Started --------------->'
-                     def server = Artifactory.newServer url:registry+"/artifactory" ,  credentialsId:"jfrogsuja"                    
+                     def server = Artifactory.newServer url:registry+"/artifactory" ,  credentialsId:"artfactcred"                    
                      def properties = "buildid=${env.BUILD_ID},commitid=${GIT_COMMIT}";
                      def uploadSpec = """{
                           "files": [
@@ -90,7 +96,7 @@ environment {
           steps {
             script {
                echo '<--------------- Docker Publish Started --------------->'  
-                docker.withRegistry(registry, 'jfrogsuja'){
+                docker.withRegistry(registry, 'artfactcred'){
                     app.push()
                 }    
                echo '<--------------- Docker Publish Ended --------------->'  
