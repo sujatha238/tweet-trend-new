@@ -13,10 +13,10 @@ environment {
     PATH = "/opt/apache-maven-3.9.6/bin:$PATH"
 }
     stages {
-      tools {
-          jdk "jdk11" // the name you have given the JDK installation in Global Tool Configuration
-         }
         stage("build"){
+          tools {
+            jdk "jdk11" // the name you have given the JDK installation in Global Tool Configuration
+         }
             steps {
                  echo "----------- build started ----------"
                 sh 'mvn clean deploy -Dmaven.test.skip=true'
