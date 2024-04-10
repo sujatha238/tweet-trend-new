@@ -32,8 +32,8 @@ environment {
         }
 
         stage('SonarQube analysis') {
-        tools {
-          jdk "jdk17" // the name you have given the JDK installation in Global Tool Configuration
+          tools {
+            jdk "jdk17" // the name you have given the JDK installation in Global Tool Configuration
          }
         environment {
           scannerHome = tool 'valaxy-sonar-scanner'
