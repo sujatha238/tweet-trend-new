@@ -38,11 +38,11 @@ environment {
          }*/
         environment {
           jdk = tool 'JAVA_HOME_17'
-          scannerHome = tool 'new-sonar-scanner'
+          scannerHome = tool 'sonar-scanner'
         }
           steps{
           withSonarQubeEnv('new-sonar-server') { // If you have configured more than one global server connection, you can specify its name
-            sh "${scannerHome}/bin/new- sonar-scanner"
+            sh "${scannerHome}/bin/sonar-scanner"
         }
       }
     }
