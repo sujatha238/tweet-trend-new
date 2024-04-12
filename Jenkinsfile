@@ -11,6 +11,9 @@ pipeline {
 
     }*/
 environment {
+    jdk = tool 'JAVA_HOME_11'
+}
+environment {
     PATH = "/opt/apache-maven-3.9.6/bin:$PATH"
 }
     stages {
@@ -30,11 +33,14 @@ environment {
         }
 
         stage('SonarQube analysis') {
-          tools {
+          /*tools {
+
             //JDK 'JAVA_HOME_17'
             jdk 'JAVA_HOME_17'
-ersion
-         }
+         }*/
+        environment {
+          jdk = tool 'JAVA_HOME_17'
+        }
         environment {
           scannerHome = tool 'new-sonar-scanner'
         }
