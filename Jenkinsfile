@@ -6,7 +6,9 @@ pipeline {
     }
     tools {
         // Use Java 8 for the build
-        JDK 'JAVA_HOME_11'
+        //JDK 'JAVA_HOME_11'
+        //jdk 'JAVA_HOME_11'
+
     }
 environment {
     PATH = "/opt/apache-maven-3.9.6/bin:$PATH"
@@ -29,7 +31,9 @@ environment {
 
         stage('SonarQube analysis') {
           tools {
-            JDK 'JAVA_HOME_17' // Correcting the Java version
+            //JDK 'JAVA_HOME_17'
+            jdk 'JAVA_HOME_17'
+ersion
          }
         environment {
           scannerHome = tool 'new-sonar-scanner'
