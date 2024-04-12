@@ -1,13 +1,17 @@
 def registry = 'https://cditvala.jfrog.io'
 def imageName = 'cditvala.jfrog.io/cditdocker-docker-local/trend'
-def version   = '2.1.4'
+def version   = '2.1.5'
 
 
 pipeline {
     agent {
         node {
-            label 'maven'
+          label 'maven'
         }
+    }
+    tools {
+        // Use Java 8 for the build
+        jdk 'JAVA_HOME_11'
     }
 environment {
     PATH = "/opt/apache-maven-3.9.6/bin:$PATH"
@@ -28,15 +32,15 @@ environment {
             }
         }
 
-        /*stage('SonarQube analysis') {
+        stage('SonarQube analysis') {
           tools {
-            jdk "jdk17" // the name you have given the JDK installation in Global Tool Configuration
+            jdk "JAVA_HOME_17" // the name you have given the JDK installation in Global Tool Configuration
          }
         environment {
-          scannerHome = tool 'valaxy-sonar-scanner'
+          scannerHome = tool 'new-sonar-scanner'
         }
           steps{
-          withSonarQubeEnv('valaxy-sonarserver') { // If you have configured more than one global server connection, you can specify its name
+          withSonarQubeEnv('new-sonarserver') { // If you have configured more than one global server connection, you can specify its name
             sh "${scannerHome}/bin/sonar-scanner"
         }
       }
@@ -52,9 +56,9 @@ environment {
   }
   }//def registry = 'https://valaxy01.jfrog.io'
     }
-  }*/
-     
-        stage("Jar Publish") {
+  }
+  }
+}        /*stage("Jar Publish") {
           steps {
             script {
                     echo '<--------------- Jar Publish Started --------------->'
@@ -107,9 +111,9 @@ environment {
             }
           }
         }
-    }
+    }*/
             
-  }   
+    
   
 
 
