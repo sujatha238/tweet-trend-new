@@ -7,4 +7,3 @@ It also contains pom.xml which has all dependences and artfact name and version
 this is new jenkisnpipeline
 this is new jenkisnpipeline
 this is new jenkisnpipeline
-this is new jenkisnpipeline
