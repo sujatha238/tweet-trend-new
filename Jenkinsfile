@@ -12,8 +12,6 @@ pipeline {
     }*/
 environment {
     jdk = tool 'JAVA_HOME_11'
-}
-environment {
     PATH = "/opt/apache-maven-3.9.6/bin:$PATH"
 }
     stages {
