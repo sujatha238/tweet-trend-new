@@ -40,8 +40,7 @@ environment {
          }*/
         environment {
           jdk = tool 'JAVA_HOME_17'
-        }
-        environment {
+        
           scannerHome = tool 'new-sonar-scanner'
         }
           steps{
