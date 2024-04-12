@@ -1,3 +1,6 @@
+def registry = 'https://cditvala.jfrog.io'
+def imageName = 'cditvala.jfrog.io/cditdocker-docker-local/trend'
+def version   = '2.1.5'
 pipeline {
     agent {
         node {
@@ -58,8 +61,8 @@ environment {
   }//def registry = 'https://valaxy01.jfrog.io'
     }
   }
-  }   
-}     /*stage("Jar Publish") {
+  
+        stage("Jar Publish") {
           steps {
             script {
                     echo '<--------------- Jar Publish Started --------------->'
@@ -113,5 +116,7 @@ environment {
           }
         }
     }
+  
+} 
             
-  }*/   
+  

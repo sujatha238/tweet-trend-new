@@ -17,7 +17,7 @@ spec:
       - name: jfrogcred
       containers:
       - name:  valaxy-rtp
-        image: cditvala.jfrog.io/cditdocker-docker-local/trend:2.1.4
+        image: cditvala.jfrog.io/cditdocker-docker-local/trend:2.1.5
         imagePullPolicy: Always
         ports:
         - containerPort: 8000
