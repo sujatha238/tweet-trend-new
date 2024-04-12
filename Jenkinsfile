@@ -42,7 +42,7 @@ environment {
         }
           steps{
           withSonarQubeEnv('new-sonar-server') { // If you have configured more than one global server connection, you can specify its name
-            sh "${scannerHome}/bin/sonar-scanner"
+            sh "${scannerHome}/bin/new- sonar-scanner"
         }
       }
     }
