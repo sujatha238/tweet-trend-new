@@ -4,12 +4,12 @@ pipeline {
           label 'maven'
         }
     }
-    tools {
+    /*tools {
         // Use Java 8 for the build
         //JDK 'JAVA_HOME_11'
         //jdk 'JAVA_HOME_11'
 
-    }
+    }*/
 environment {
     PATH = "/opt/apache-maven-3.9.6/bin:$PATH"
 }
