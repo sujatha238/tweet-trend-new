@@ -41,7 +41,7 @@ environment {
           scannerHome = tool 'new-sonar-scanner'
         }
           steps{
-          withSonarQubeEnv('new-sonarserver') { // If you have configured more than one global server connection, you can specify its name
+          withSonarQubeEnv('new-sonar-server') { // If you have configured more than one global server connection, you can specify its name
             sh "${scannerHome}/bin/sonar-scanner"
         }
       }
